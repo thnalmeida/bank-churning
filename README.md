@@ -1,10 +1,10 @@
-# Análise Exploratória de Dados: Churn de Clientes Bancários# Análise Exploratória de Dados: Churn de Clientes Bancários
+# Análise Exploratória de Dados: Churn de Clientes Bancários
 
 Este projeto é uma análise exploratória de dados (EDA) baseada no conjunto de dados **Churn Modelling** do Kaggle. O objetivo é entender os fatores que levam os clientes a saírem de um banco, através de análises estatísticas e visualizações.
 
 O conjunto de dados `Churn_Modelling.csv` contém informações de clientes de um banco, incluindo dados demográficos, financeiros e de produtos, além de uma variável de interesse que indica se o cliente saiu do banco (`Exited`).
 
-##Bibliotecas Utilizadas
+## Bibliotecas Utilizadas
 
 - **`pandas`**: Manipulação e análise de dados.
 - **`numpy`**: Funções matemáticas e manipulação de arrays.
@@ -12,17 +12,17 @@ O conjunto de dados `Churn_Modelling.csv` contém informações de clientes de u
 - **`seaborn`**: Criação de gráficos estatísticos mais atraentes.
 - **`scipy`**: Funções para cálculos científicos e estatísticos.
 
-##Análise e Visualizações
+## Análise e Visualizações
 
 O código realiza as seguintes etapas de análise:
 
-###Análise Exploratória de Dados (EDA)
+### Análise Exploratória de Dados (EDA)
 
 - **Inspeção inicial**: Exibição das primeiras linhas do dataframe, nomes das colunas, tipos de dados (`.info()`) e estatísticas descritivas (`.describe()`).
 - **Contagem de valores**: Análise da distribuição de variáveis categóricas como `Gender` (gênero), `Exited` (churn) e `Geography` (país).
 - **Médias por grupo**: Cálculo da média de idade e salário estimado para homens e mulheres.
 
-###Visualizações
+### Visualizações
 
 - **Gráfico de dispersão**: Mostra a relação entre o saldo da conta (`Balance`) e o escore de crédito (`CreditScore`).
 - **Gráfico de pizza**: Ilustra a proporção de clientes por gênero (homens e mulheres).
@@ -31,7 +31,7 @@ O código realiza as seguintes etapas de análise:
 
 - Cálculo e impressão dos coeficientes de correlação de **Pearson** e **Spearman** entre `CreditScore` e `EstimatedSalary`.
 
-##Como Executar o Projeto
+## Como Executar o Projeto
 
 1.  **Pré-requisitos**: Certifique-se de ter o Python instalado.
 2.  **Instale as bibliotecas**:
