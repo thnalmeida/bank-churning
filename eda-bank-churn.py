@@ -7,21 +7,29 @@ from scipy.stats import pearsonr, spearmanr
 
 df = pd.read_csv('Churn_Modelling.csv', index_col = 0)
 
-df['CustomerId'] = str(df['CustomerId'])
-df['IsActiveMember']  =str(df['IsActiveMember'])
-df['Exited'] = str(df['Exited'])
-
 #Análise exploratória dos dados
 print(df.head())
 print(df.columns)
 print(df.info())
-print(df.describe())
+print(df.describe(include='object'))
 print(df.shape)
 
+#corrigindo tipo da variável
+df['CustomerId'] = df['CustomerId'].astype(str)
+df['IsActiveMember'] = df['IsActiveMember'].astype(str)
+df['Exited'] = df['Exited'].astype(str)
+df['HasCrCard'] = df['HasCrCard'].astype(str)
+
+print(f'Nova classificação do tipo de variável: {df.info()}')
 
 print(df['Gender'].value_counts())
-print(df['Exited'].value_counts())
 print(df['Geography'].value_counts())
+print(df['Exited'].value_counts())
+print(df['IsActiveMember'].value_counts())
+print(df['HasCrCard'].value_counts())
+
+
+
 print(df['Age'].mean())
 
 idade_homens = df[df['Gender'] == 'Male'] ['Age']
@@ -36,9 +44,9 @@ salario_mulheres = df[df['Gender'] == 'Female'] ['EstimatedSalary']
 print(salario_homens.mean())
 print(salario_mulheres.mean())
 
-#gráfico = relação entre o salário estimado e o escore de crédito
-#gráfico de dispersão
-sns.set_style("white")
+#gráfico = relação entre o saldo estimado e o escore de crédito
+#gráfico de dispersão - avalia relação entre 2 variáveis numéricas
+sns.set_style("white") #fundo branco sem linhas cinza
 plt.figure(figsize=(10,10))
 g = sns.scatterplot(x=df['Balance'], y=df['CreditScore'], data=df)
 plt.title("Relação entre o saldo atual e o escore de crédito")
@@ -59,7 +67,7 @@ gender_counts = df['Gender'].value_counts()
 sizes = gender_counts.values
 labels = gender_counts.index
 
-#gráfico de pizza
+#gráfico de pizza - prop de homens e mulheres
 fig, ax = plt.subplots()
 ax.pie(sizes,
        labels=labels,
